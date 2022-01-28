@@ -28,11 +28,15 @@ while True:
     screen.blit(text_surface, (300,50))
     
     screen.blit(player_surf,player_rect)
-    player_rect.left += 1
     snail_rect.x -= 4
     if snail_rect.right <= 0: snail_rect.left = 800
     screen.blit(snail_surf, snail_rect)
-    
+
+    #if player_rect.colliderect(snail_rect):
+    #    print('collision')
+
+    mouse_pos = pygame.mouse.get_pos()
+    if player_rect.collidepoint(mouse_pos):
+        print('collison')
     pygame.display.update()
     clock.tick(60)
-# THIS IS A COMMENT TO SEE IF MY GITHUB FLOW IS WORKING
